@@ -55,7 +55,7 @@ def setup_selenium():
     print("🧨 GOD SAVE THE GOOGLE 🧨")
 
 
-@app.get("/autocomplete")
+@app.post("/autocomplete")
 def autocomplete(request: AutocompleteRequest):
 
     if (len(request.prompt) == 0):
@@ -76,7 +76,7 @@ def autocomplete(request: AutocompleteRequest):
 
     return response_data
 
-@app.get("/formattedaddress")
+@app.post("/formattedaddress")
 def formatted_addresses(request: FormattedAddressRequest):
     if (len(request.prompt) == 0):
         raise HTTPException(status_code=400, detail="Bad request: MISSING PROMPT in body params")
