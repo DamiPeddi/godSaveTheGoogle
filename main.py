@@ -98,4 +98,4 @@ def formatted_addresses(request: FormattedAddressRequest):
 
 if __name__ == "__main__":
     setup_selenium()
-    uvicorn.run(app, host="0.0.0.0", port=30000)
+    uvicorn.run(app, host="0.0.0.0", port=3000)
