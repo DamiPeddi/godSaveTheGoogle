@@ -33,10 +33,11 @@ driver = None
 
 def setup_selenium():
     global driver
-    options = Options()
-    options.headless = True
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
     #options.add_argument("--window-size=600,800")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
     driver.get("https://geo-devrel-javascript-samples.web.app/404.html")
 

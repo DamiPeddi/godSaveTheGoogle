@@ -6,8 +6,6 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY . /code
-
 # Adding trusting keys to apt for repositories
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 
@@ -32,6 +30,7 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 # Set display port as an environment variable
 ENV DISPLAY=:99
 
+COPY . /code
 
 EXPOSE 3000
 
